@@ -27,7 +27,7 @@ public class GetObject2 {
         S3Object fullObject = null, objectPortion = null, headerOverrideObject = null;
         try {
             AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-                    .withRegion(config.getString("Rest.region"))
+                    .withRegion(config.getString("Grpc.region"))
                     .withCredentials(DefaultAWSCredentialsProviderChain.getInstance())
                     .build();
 
