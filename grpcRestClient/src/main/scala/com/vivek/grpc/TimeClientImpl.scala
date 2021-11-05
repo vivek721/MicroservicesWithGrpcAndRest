@@ -36,7 +36,7 @@ class TimeClientImpl extends TimeServiceGrpc.TimeService {
     val output = Base64.getDecoder.decode(response.body)
     val result = TimeResponse.parseFrom(output)
 
-    print(result.isPresent)
+    logger.info(result.isPresent)
 
     Future.successful(TimeResponse(isPresent = ""))
   }
