@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+package com.cs441.vivek;
+
+service TimeService {
+  rpc CheckTime(TimeRequest) returns (TimeResponse);
+}
+
+message TimeRequest {
+  string time = 1;
+}
+
+message TimeResponse {
+  string isPresent = 1;
+}
