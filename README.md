@@ -1,6 +1,5 @@
 # CS 441 - Engineering Distributed Objects for Cloud Computing
-## Homework 6 - Lambda gRPC Calculator
-
+## Homework 3 - gRPC and Lambda AWS Lambda
 ---
 
 ### Overview
