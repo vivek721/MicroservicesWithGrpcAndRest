@@ -1,6 +1,5 @@
 # CS 441 - Engineering Distributed Objects for Cloud Computing
-## Homework 6 - Lambda gRPC Calculator
-
+## Homework 3 - gRPC and Lambda AWS Lambda
 ---
 
 ### Overview
@@ -88,6 +87,7 @@ message TimeResponse {
    sbt clean compile assembly
    ```
 3. Deploy the jar into AWS lambda following the video instructions provided.
+   - [Tutorial Video](https://youtu.be/IuaJEGvDCUg)
 
 
 
@@ -104,6 +104,8 @@ message TimeResponse {
    sbt clean compile assembly
    ```
 3. Deploy the jar into AWS lambda following the video instructions provided.
+
+   - [Tutorial Video](https://youtu.be/IuaJEGvDCUg)
 4. Open command prompt (if on Windows) or terminal (if on Mac/Linux)
  ```text
  aws apigateway update-integration-response --rest-api-id <rest api id> --resource-id <Resource ID> --http-method POST --status-code 200 --patch-operations op='replace',path='/contentHandling'
