@@ -9,6 +9,8 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,16 +24,15 @@ import java.util.regex.Pattern;
 public class GetObject2 {
 
     public ArrayList<String> readFile(LambdaLogger logger, String inputTime, String delta, String logType) throws IOException {
-
-        Regions clientRegion = Regions.DEFAULT_REGION;
-        String bucketName = "mylogawsbucket";
-        String key = "logfolder/LogFileGenerator.2021-11-01.log";
+        Config config = ConfigFactory.load("application" + ".conf");
+        String bucketName = config.getString("Rest.bucketName");
+        String key = config.getString("Rest.key");
         ArrayList<String> result = new ArrayList<>();
 
         S3Object fullObject = null, objectPortion = null, headerOverrideObject = null;
         try {
             AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-                    .withRegion("us-east-2")
+                    .withRegion(config.getString("Rest.region"))
                     .withCredentials(DefaultAWSCredentialsProviderChain.getInstance())
                     .build();
 
