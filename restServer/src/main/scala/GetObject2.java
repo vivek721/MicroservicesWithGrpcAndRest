@@ -1,9 +1,6 @@
 import com.amazonaws.AmazonServiceException;
 import com.amazonaws.SdkClientException;
 import com.amazonaws.auth.DefaultAWSCredentialsProviderChain;
-import com.amazonaws.auth.profile.ProfileCredentialsProvider;
-import com.amazonaws.regions.Regions;
-import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.LambdaLogger;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -21,8 +18,25 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class GetObject2 {
+/**
+ * This class gets S3 object of logfile from S3 bucket
+ *
+ * All the configuration are read from application.conf file.
+ *
+ * @author Vivek Mishra
+ *
+ */
 
+public class GetObject2 {
+    /**
+     *
+     * @param logger
+     * @param inputTime
+     * @param delta
+     * @param logType
+     * @return Arraylist[logs]
+     * @throws IOException
+     */
     public ArrayList<String> readFile(LambdaLogger logger, String inputTime, String delta, String logType) throws IOException {
         Config config = ConfigFactory.load("application" + ".conf");
         String bucketName = config.getString("Rest.bucketName");
@@ -66,6 +80,15 @@ public class GetObject2 {
         return result;
     }
 
+    /**
+     *
+     * @param input
+     * @param inputTime
+     * @param deltaTime
+     * @param logType
+     * @return Arraylist[log]
+     * @throws IOException
+     */
     private static ArrayList<String> displayTextInputStream(InputStream input, String inputTime, String deltaTime, String logType)
             throws IOException {
         ArrayList<String> result = new ArrayList<>();

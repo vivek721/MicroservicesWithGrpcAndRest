@@ -9,14 +9,9 @@ import scala.concurrent.duration.DurationInt
 import scala.language.postfixOps
 
 /**
- * This is a map/reduce model to find the distribution of log types from the logfile within a given time period and
- * having a given regex pattern
- *
- * {DEBUG, ERROR, INFO, WARN} these are the type of messages in logfile
+ * This is grpc server that deployed as lambda on aws server
  *
  * All the configuration are read from application.conf file.
- *
- * The code entry point is the ExecutionStart.scala.
  *
  * @author Vivek Mishra
  *

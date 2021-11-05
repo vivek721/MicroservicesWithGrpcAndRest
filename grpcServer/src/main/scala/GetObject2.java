@@ -7,6 +7,8 @@ import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
 import com.amazonaws.services.s3.model.GetObjectRequest;
 import com.amazonaws.services.s3.model.S3Object;
+import com.typesafe.config.Config;
+import com.typesafe.config.ConfigFactory;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,15 +19,15 @@ import java.time.LocalTime;
 public class GetObject2 {
 
     public boolean readFile(String inputTime) throws IOException {
-
-        String bucketName = "mylogawsbucket";
-        String key = "logfolder/LogFileGenerator.2021-11-01.log";
+        Config config = ConfigFactory.load("application" + ".conf");
+        String bucketName = config.getString("Grpc.bucketName");
+        String key = config.getString("Grpc.key");
         boolean result = false;
 
         S3Object fullObject = null, objectPortion = null, headerOverrideObject = null;
         try {
             AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
-                    .withRegion("us-east-2")
+                    .withRegion(config.getString("Rest.region"))
                     .withCredentials(DefaultAWSCredentialsProviderChain.getInstance())
                     .build();
 
