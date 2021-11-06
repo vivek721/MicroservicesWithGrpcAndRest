@@ -115,4 +115,31 @@ public class GetObject2 {
         }
         return result;
     }
+
+    public static boolean binarySearch(String logData, String startTime, String endTime  ){
+
+        String data[] = logData.split("/n");
+        int startValue = 0;
+        int endValue = data.length - 1;
+        int midValue;
+        boolean result = false;
+
+        String timeStamp = "";
+
+        while (startValue <=  endValue) {
+
+            midValue = (startValue + endValue) / 2;
+            timeStamp = data[midValue].split(" ")[0].split(".")[0];
+            if (startTime.compareTo(timeStamp) > 0) {
+                startValue = midValue + 1;
+            } else if (endTime.compareTo(timeStamp) < 0) {
+                endValue = midValue - 1;
+            } else {
+                result = true;
+                break;
+            }
+        }
+
+        return result;
+    }
 }
