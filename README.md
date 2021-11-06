@@ -78,7 +78,7 @@ message TimeResponse {
 
 1. Clone the repository from github
     ```text
-    > git@github.com:vivek721/MicroservicesWithGrpcAndRest.git
+    > git clone git@github.com:vivek721/MicroservicesWithGrpcAndRest.git
     ```
 
 2. Move to grpcServer Directory and execute below commands
@@ -89,13 +89,11 @@ message TimeResponse {
 3. Deploy the jar into AWS lambda following the video instructions provided.
    - [Tutorial Video](https://youtu.be/IuaJEGvDCUg)
 
-
-
 #### Deploying REST functions on AWS Lambda
 
 1. Clone the repository from github
     ```text
-    > git@github.com:vivek721/MicroservicesWithGrpcAndRest.git
+    > git clone git@github.com:vivek721/MicroservicesWithGrpcAndRest.git
     ```
 
 2. Move to restServer Directory and execute below commands
@@ -104,8 +102,8 @@ message TimeResponse {
    sbt clean compile assembly
    ```
 3. Deploy the jar into AWS lambda following the video instructions provided.
-
    - [Tutorial Video](https://youtu.be/IuaJEGvDCUg)
+   
 4. Open command prompt (if on Windows) or terminal (if on Mac/Linux)
  ```text
  aws apigateway update-integration-response --rest-api-id <rest api id> --resource-id <Resource ID> --http-method POST --status-code 200 --patch-operations op='replace',path='/contentHandling'
@@ -118,7 +116,7 @@ message TimeResponse {
 
 1. Clone the repository from github
     ```text
-    > git@github.com:vivek721/MicroservicesWithGrpcAndRest.git
+    > git clone git@github.com:vivek721/MicroservicesWithGrpcAndRest.git
     ```
 2. Move to grpcRestClient Directory and execute below commands
    ```text
