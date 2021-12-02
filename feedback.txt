@@ -5,7 +5,7 @@ Grading Criteria:
  - only some basic RESTful service examples from some repos are given and nothing else is done: zero grade;
 	*  functionality acomplished: -0%
  - having less than five unit and/or integration scalatests: up to 5% lost;
-	* no unit tests: -2.5%
+	* nunit tests present (after revision): -.3%
  - missing comments and explanations from your program: up to 5% lost;
 	* comments present: -0%
  - logging is not used in your programs: up to 3% lost;
@@ -24,5 +24,6 @@ Grading Criteria:
 	* documentation exists: -0%
 
 	
-Total Grade: 5.5%
-Comments: Overall good job, but I could not find any unit tests
+Total Grade: 7.7%
+Comments: I have accepted your late submission of the unit tests, with a small penalty. 
+Overall good job though!
